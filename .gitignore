@@ -1,5 +1,1 @@
-docker/logs/apache2/*
-docker/logs/mysql/*
 docker/.env
-docker/config/php/php.ini
-docker/data/*

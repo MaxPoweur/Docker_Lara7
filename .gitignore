@@ -1,4 +1,3 @@
-src/*
 docker/logs/apache2/*
 docker/logs/mysql/*
 docker/.env

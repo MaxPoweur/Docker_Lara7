@@ -62,6 +62,55 @@ Et voilà ! Vous voilà fin prêt pour coder de grandes applications.
 
 # Débuter avec Docker
 
+## Vous avez dit Docker 🤔 ?
+
+Tout le monde n'est pas forcément familier avec **Docker**. D'ailleurs, tout le monde ne connait pas Docker.
+
+### Mais qu'est-ce que Docker ?
+
+Docker est un logiciel aujourd'hui largement répandu qui permet de déployer aisément différents **environnements ISOS** les uns par rapport aux autres (développement, recette, pré-production...).
+
+Docker tourne autour du concept de "containeur". Un containeur est semblable à une **machine virtuelle**, c'est à dire un sous-système d'exploitation *étanche* dans lequel nous allons installer un ensemble d'applications, de configurations...
+
+La différence principale entre un containeur** et une machine virtuelle réside dans la **légèreté** et dans la **simplicité d'utilisation et de configuration** d'un containeur.
+
+En effet, un containeur est beaucoup plus léger qu'une machine virtuelle, et il est alors beaucoup plus rapide de lancer un containeur.
+
+Un containeur, pour être plus précis, correspond à une **instance** d'une **image** docker.
+
+Et une image, c'est un ensemble de règles qui vont définir comment sera construit notre container (ex: les règles de configurations, les logiciels/services à installer dans notre containeur).
+
+Comme analogie, je vous propose de comparer la relation image/containeur avec la relation classe/objet :
+
+> Une classe est une définition et un objet est l'instance d'une classe.
+
+Un second intérêt à utiliser Docker est alors de pouvoir déployer des containeurs docker dans différents environnements, à partir de la même image (et qui bénificient donc des même configurations et services).
+
+*Marre des effets de bords liés à une version PHP non cohérente avec celle utilisée dans l'environnement de production 🤗 ? Utilisez Docker !*
+
+### Utiliser Docker
+
+Pour utiliser Docker, il n'est pas nécessaire de comprendre ses rouages internes, ni de savoir créer ou configurer une image Docker.
+
+Utiliser Docker, ça se résume bien souvent à l'utilisation de quelques commandes.
+
+Pour lancer notre containeur Docker, il faut utiliser l'une des commandes suivantes (dans le répertoire de l'image Docker) :
+
+> docker run *[OPTIONS]* IMAGE *[ARGS]*
+
+ou
+
+> docker-compose up *[OPTIONS]*
+
+La première commande lance un unique containeur, tandis que la seconde commande lance **au moins** un containeur.
+
+La seconde commande est ainsi utile dans le cas d'applications nécessitant **plusieurs services**, avec un containeur par service (ex: un containeur apache, un containeur mysql, un containeur phpMyAdmin...).
+
+Ainsi, la ou les commandes commandes à utiliser, dépendent du contexte d'utilisation. Il faut alors se référer à la **documentation de l'image** que vous comptez utiliser pour l'exploiter correctement.
+
+Mais avant tout, il faudra tout de même veiller à installer Docker sur son ordinateur.
+
+
 ## Installer Docker Engine (*sous Ubuntu*)
 
 Docker Engine est le *moteur* Docker, c'est à dire le daemon qui va tourner en arrière plan et faire fonctionner tous les méchanismes de containeurisation.

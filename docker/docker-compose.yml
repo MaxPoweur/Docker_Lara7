@@ -36,7 +36,6 @@ services:
             - ./logs/mysql:/var/log/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
             - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     phpmyadmin:
         image: phpmyadmin/phpmyadmin

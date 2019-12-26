@@ -27,7 +27,7 @@ RUN pecl install imagick\
     && docker-php-ext-enable imagick
 
 # Enable apache modules
-RUN a2enmod rewrite headers ssl
+RUN a2enmod rewrite headers ssl vhost_alias
 
 COPY ssl/server.crt /etc/apache2/ssl/server.crt
 COPY ssl/server.key /etc/apache2/ssl/server.key

@@ -15,7 +15,7 @@ services:
         volumes:
             - ${WEB_ROOT}:/var/www/html/src
             - ./config/php/php.ini:/usr/local/etc/php/php.ini
-            - ./config/vhosts:/etc/apache2/sites-enabled
+            - ./config/apache2/vhosts:/etc/apache2/sites-enabled
             - ./logs/apache2:/var/log/apache2
             - ~/.ssh/:/root/.ssh
             - ~/.gitconfig/:/root/.gitconfig

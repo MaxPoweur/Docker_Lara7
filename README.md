@@ -34,7 +34,7 @@ Pour une utilisation un peu plus avancée, vous pouvez toujours éditer les fich
 
 >  docker-compose build --build-arg USER_ID=${UID}
 
-*La partie --build-arg USER_ID=${UID} est à écrire **telle quelle** et permet d'anticiper de futurs problèmes de permissions sur notre containeur Docker*
+*La partie --build-arg USER_ID=${UID} est à écrire **telle quelle** et permet d'anticiper de futurs problèmes de permissions sur nos containeurs Docker.*
 
 4) Lancer les containeurs Docker :
 

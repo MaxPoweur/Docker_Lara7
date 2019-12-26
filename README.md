@@ -30,20 +30,20 @@ Pour une utilisation un peu plus avancée, vous pouvez toujours éditer les fich
 ## Construire l'image Docker
 
 1) En invite de commande, se positionner dans le répertoire docker.
-2) Lancer la commande (remplacer **{{NOM_APP}}** par le nom que vous choisirez pour votre application, doit être unique) :
+2) Lancer la commande :
 
-> docker-compose -p **{{NOM_APP}}** up -d
+> docker-compose up -d
 
 Nous y voilà, les containeurs/services tournent en arrière-plan !
 
 Pour stopper les services (sans les détruire), il suffit de taper la commande :
 
-> docker-compose -p **{{NOM_APP}}** down -d
+> docker-compose down -d
 
 Il suffira alors d'écrire la première commande pour relancer les même services et retrouver l'état précédent de vos services (état **persistant**)
 
 Pour détruire totalement les services :
-> docker-compose -p **{{NOM_APP}}** rm -fs
+> docker-compose rm -fs
 
 ## Travailler avec l'image Docker
 

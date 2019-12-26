@@ -23,6 +23,7 @@ RUN pecl install imagick\
     && docker-php-ext-install mcrypt \
     && docker-php-ext-install intl \
     && docker-php-ext-install gd \
+    && docker-php-ext-install soap \
     && docker-php-ext-enable imagick
 
 # Enable apache modules

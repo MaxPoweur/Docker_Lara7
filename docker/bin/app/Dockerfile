@@ -29,10 +29,26 @@ RUN pecl install imagick\
 # Enable apache modules
 RUN a2enmod rewrite headers ssl vhost_alias
 
+# Certificates used to enable HTTPS
 COPY ssl/server.crt /etc/apache2/ssl/server.crt
 COPY ssl/server.key /etc/apache2/ssl/server.key
-COPY docker-init.sh /usr/local/bin/
 
+# Add the user "user" with the same UID as the local host user and add it to the sudo group
+ARG USER_ID=1000
+RUN useradd --shell /bin/bash -u $USER_ID -o -c "" -m user
+RUN usermod -aG sudo user
+RUN apt install sudo
+RUN echo "user     ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
+
+# Set default user for all next operations
+USER user
+
+# Default working directory
 WORKDIR /var/www/html/src
 
+# Copy entrypoint script to container bin directory
+COPY docker-init.sh /usr/local/bin/
+
 ENTRYPOINT ["docker-init.sh"]
+
+# CMD /usr/sbin/apache2ctl -D FOREGROUND

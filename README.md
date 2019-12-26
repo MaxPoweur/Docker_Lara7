@@ -30,7 +30,13 @@ Pour une utilisation un peu plus avancée, vous pouvez toujours éditer les fich
 ## Construire l'image Docker
 
 1) En invite de commande, se positionner dans le répertoire docker.
-2) Lancer la commande :
+2) Construire les images Docker :
+
+>  docker-compose build --build-arg USER_ID=${UID}
+
+*La partie --build-arg USER_ID=${UID} est à écrire **telle quelle** et permet d'anticiper de futurs problèmes de permissions sur notre containeur Docker*
+
+4) Lancer les containeurs Docker :
 
 > docker-compose up -d
 
@@ -65,11 +71,11 @@ Et voilà ! Vous voilà fin prêt pour coder de grandes applications.
 
 > Les variables d'environnement de connexion à la base de données sont déjà définies dans l'image docker, il n'est donc pas utile de les redéfinir dans votre .env
 
-> Pour vous connecter en invite de commande à votre base de données :
->
+Pour vous connecter en invite de commande à votre base de données :
+
 > ```mysql -P ${MYSQL_PORT} --protocol=tcp -u root -p --password=${MYSQL_ROOT_PASSWORD}```
->
-> Les variables ${MYSQL_PORT} et ${MYSQL_ROOT_PASSWORD} étant définies dans le fichier docker/.env
+
+*Les variables ${MYSQL_PORT} et ${MYSQL_ROOT_PASSWORD} étant définies dans le fichier docker/.env*
 
 # Débuter avec Docker
 

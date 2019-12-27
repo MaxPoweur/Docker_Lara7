@@ -17,6 +17,7 @@ services:
             - ./config/apache2/vhosts:/etc/apache2/sites-enabled
             - ./logs/apache2:/var/log/apache2
             - ~/.ssh/:/root/.ssh
+            - ~/.ssh/:/home/user/.ssh
             - ~/.gitconfig/:/root/.gitconfig
         environment:
           - DB_CONNECTION=mysql

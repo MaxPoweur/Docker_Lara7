@@ -59,11 +59,12 @@ Il est important de comprendre que le répertoire **/src** sur votre machine est
 
 Et le dossier */var/www/html/src* correspond à la racine du serveur web.
 
-Le serveur web est configuré avec des virtual hosts automatiques et a un fonctionnement similaire au serveur Lara7 et vous pouvez utiliser le containeur pour héberger plusieurs de vos projets Lara7.
+Le serveur web est configuré avec des virtual hosts, avec un fonctionnement similaire au serveur Lara7 vous pouvez donc utiliser le containeur pour héberger plusieurs de vos projets Lara7.
 
 ### Ajouter un projet au containeur
 
-Pour chaque projet Lara7, il faut créer le répertoire correspondant à la racine du dossier **/src**.
+Pour chaque projet Lara7, il faut créer le répertoire correspondant à la racine du dossier **/src** de votre machine ou du dossier **/var/www/html/src** de votre containeur (les 2 dossiers sont liés).
+
 Pour pouvoir accéder à votre projet depuis votre navigateur, il vous est demandé d'éditer votre fichier **/etc/hosts** en y rajoutant cette ligne :
 
 ```127.0.0.1       **{projectName}**.hegyd.local```

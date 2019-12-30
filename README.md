@@ -74,7 +74,9 @@ Ainsi, chaque sous-répertoire dans */src* sera disponible à l'adresse **${proj
 > **${ENV.HTTP_PORT}** étant une variable de configuration du fichier **.env**
 
 > Les variables d'environnement de connexion à la base de données sont déjà définies dans l'image docker, il n'est donc pas utile de les redéfinir dans votre .env
+> 
 > Si vous les définissez tout de même dans le .env de votre projet, elles seront ignorées
+> 
 > Seule la variable **${DB_DATABASE}** est à définir. Il faudra veiller à créer par vous même la base de données.
 
 ### Travailler sur un projet

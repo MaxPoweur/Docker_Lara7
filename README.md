@@ -77,7 +77,7 @@ Ainsi, chaque sous-répertoire dans */src* sera disponible à l'adresse **${proj
 > 
 > Si vous les définissez tout de même dans le .env de votre projet, elles seront ignorées
 > 
-> Seule la variable **${DB_DATABASE}** est à définir. Il faudra veiller à créer par vous même la base de données.
+> Seule la variable **${ENV.DB_DATABASE}** est à définir. Il faudra veiller à créer par vous même la base de données.
 
 ### Travailler sur un projet
 

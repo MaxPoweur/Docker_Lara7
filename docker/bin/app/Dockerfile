@@ -24,7 +24,9 @@ RUN pecl install imagick\
     && docker-php-ext-install intl \
     && docker-php-ext-install gd \
     && docker-php-ext-install soap \
-    && docker-php-ext-enable imagick
+    && docker-php-ext-enable imagick \
+    && docker-php-ext-install bz2 \
+    && docker-php-ext-install exif
 
 # Enable apache modules
 RUN a2enmod rewrite headers ssl vhost_alias

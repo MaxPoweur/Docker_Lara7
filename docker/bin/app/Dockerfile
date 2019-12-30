@@ -14,6 +14,8 @@ RUN apt-get -y install --fix-missing apt-utils build-essential git \
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs openssh-client
 
 # PHP Extensions
 RUN pecl install imagick\
@@ -44,6 +46,7 @@ RUN echo "user     ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
 
 # Set default user for all next operations
 USER user
+RUN git config --global http.sslVerify "false"
 
 # Default working directory
 WORKDIR /var/www/html/src
@@ -52,5 +55,3 @@ WORKDIR /var/www/html/src
 COPY docker-init.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-init.sh"]
-
-# CMD /usr/sbin/apache2ctl -D FOREGROUND

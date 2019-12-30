@@ -10,7 +10,9 @@ L'image Lara7 propose les services suivants :
 
 Ainsi, cette image est adaptée pour les projets Lara7. Pour les projets Lara ou Lara7-2, merci de vous référer au dépôt correspondant.
 
-> Si vous n'avez encore jamais utilisé Docker, c'est le moment de vous lancer. Consultez la section [Débuter avec Docker](#DébuteravecDocker)
+> Si vous n'avez encore jamais utilisé Docker, c'est le moment de vous lancer. Consultez la section **Débuter avec Docker**
+
+⚠️  Merci de ne pas mettre à jour ce dépôt Docker sans l'accord d'un référent
 
 # Configuration et utilisation de l'image
 
@@ -55,27 +57,50 @@ Pour détruire totalement les services :
 
 Il est important de comprendre que le répertoire **/src** sur votre machine est reliée en temps réel au dossier **/var/www/html/src** du containeur.
 
-Et le dossier */var/www/html/src* correspond à la racine du serveur web, ainsi, tout ce qui sera dans votre dossier */src* sera disponible à la racine du site web **localhost:{ENV.HTTP_PORT}**.
+Et le dossier */var/www/html/src* correspond à la racine du serveur web.
 
-Vous pouvez donc directement coder dans le répertoire */src*.
+Le serveur web est configuré avec des virtual hosts automatiques et a un fonctionnement similaire au serveur Lara7 et vous pouvez utiliser le containeur pour héberger plusieurs de vos projets Lara7.
 
-Pour initialiser le projet via un git clone, vous devez (pour des soucis de permissions) le faire sur votre machine, à l'intérieur du dossier */src*.
+### Ajouter un projet au containeur
 
-Néanmoins, pour le reste des commandes, il est largement recommandé et conseillé de le faire **à l'intérieur du containeur** (surtout pour commandes **artisan**):
+Pour chaque projet Lara7, il faut créer le répertoire correspondant à la racine du dossier **/src**.
+Pour pouvoir accéder à votre projet depuis votre navigateur, il vous est demandé d'éditer votre fichier **/etc/hosts** en y rajoutant cette ligne :
+
+```127.0.0.1       **{projectName}**.hegyd.local```
+> **{projectName}** étant à remplacer par le nom de votre sous-répertoire correspondant au projet à ajouter
+
+Ainsi, chaque sous-répertoire dans */src* sera disponible à l'adresse **{projectName}.hegyd.local:{ENV.HTTP_PORT}**.
+> **{ENV.HTTP_PORT}** étant une variable de configuration du fichier **.env**
+
+> Les variables d'environnement de connexion à la base de données sont déjà définies dans l'image docker, il n'est donc pas utile de les redéfinir dans votre .env
+> Si vous les définissez tout de même dans le .env de votre projet, elles seront ignorées
+
+### Travailler sur un projet
+
+Il vous est demandé, pour tout ce qui est commande (php artisan, npm, composer...), de les écrire directement dans le dossier de votre projet, dans le containeur.
+Ceci pour des raisons de permissions et de synchronisation des fichiers.
+
+Vous pouvez cependant coder directement depuis le dossier **/src/{projectName}** de votre machine.
+
+Voici la commande vous permettant de vous connecter à votre containeur :
 
 ```docker exec -it webapp-7.1.3 bash```
 
 Cette commande vous connectera en **ssh** sur votre container, dans lequel vous pourrez taper toutes les commandes dont vous aurez besoin.
+Mais n'oubliez pas que le containeur contient **tous** vos projets Lara7. Pour taper des commandes **artisan** (par exemple), positionnez-vous d'abord dans le répertoire du projet désiré.
 
-Et voilà ! Vous voilà fin prêt pour coder de grandes applications.
-
-> Les variables d'environnement de connexion à la base de données sont déjà définies dans l'image docker, il n'est donc pas utile de les redéfinir dans votre .env
-
-Pour vous connecter en invite de commande à votre base de données :
+Pour vous connecter en invite de commande à votre base de données, depuis votre machine :
 
 > ```mysql -P ${MYSQL_PORT} --protocol=tcp -u root -p --password=${MYSQL_ROOT_PASSWORD}```
 
 *Les variables ${MYSQL_PORT} et ${MYSQL_ROOT_PASSWORD} étant définies dans le fichier docker/.env*
+
+Pour vous connecter à vos bases de données depuis **MySQL Workbench**, il faut utiliser les détails de connexion définies dans le fichier **/docker/.env**
+Pour l'hôte, spécifiez 127.0.0.1.
+
+Si vous préférez consulter vos bases de données sur navigateur via PhpMyAdmin, rendez-vous sur **localhost:8085**.
+
+Et voilà ! Vous voilà fin prêt pour coder de grandes applications.
 
 # Débuter avec Docker
 

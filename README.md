@@ -105,6 +105,9 @@ Si vous préférez consulter vos bases de données sur navigateur via PhpMyAdmin
 
 Et voilà ! Vous voilà fin prêt pour coder de grandes applications.
 
+⚠  A chaque redémarrage de votre machine, il faudra veiller à redémarrer vos containeurs en vous positionnant, de nouveau, dans le dossier **/docker** et en lançant la commande :
+```docker-compose up -d``` 
+
 # Débuter avec Docker
 
 ## Vous avez dit Docker 🤔 ?

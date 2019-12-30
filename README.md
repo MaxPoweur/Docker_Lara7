@@ -97,7 +97,8 @@ Pour vous connecter en invite de commande à votre base de données, depuis votr
 
 *Les variables ${MYSQL_PORT} et ${MYSQL_ROOT_PASSWORD} étant définies dans le fichier docker/.env*
 
-Pour vous connecter à vos bases de données depuis **MySQL Workbench**, il faut utiliser les détails de connexion définies dans le fichier **/docker/.env**
+Pour vous connecter à vos bases de données depuis **MySQL Workbench**, il faut utiliser les détails de connexion définies dans le fichier **/docker/.env**.
+
 Pour l'hôte, spécifiez 127.0.0.1.
 
 Si vous préférez consulter vos bases de données sur navigateur via PhpMyAdmin, rendez-vous sur **localhost:8085**.

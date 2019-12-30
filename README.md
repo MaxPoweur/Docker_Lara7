@@ -88,7 +88,7 @@ Vous pouvez cependant coder directement depuis le dossier **/src/{projectName}**
 
 Voici la commande vous permettant de vous connecter à votre containeur :
 
-```docker exec -it webapp-7.1.3 bash```
+```docker exec -it lara7-webapp bash```
 
 Cette commande vous connectera en **ssh** sur votre container, dans lequel vous pourrez taper toutes les commandes dont vous aurez besoin.
 Mais n'oubliez pas que le containeur contient **tous** vos projets Lara7. Pour taper des commandes **artisan** (par exemple), positionnez-vous d'abord dans le répertoire du projet désiré.

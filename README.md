@@ -55,7 +55,7 @@ Pour détruire totalement les services :
 
 ## Travailler avec l'image Docker
 
-Il est important de comprendre que le répertoire **/src** sur votre machine est reliée en temps réel au dossier **/var/www/html/src** du containeur.
+Il est important de comprendre que le répertoire **/src** sur votre machine est relié en temps réel au répertoire **/var/www/html/src** du containeur.
 
 Et le dossier */var/www/html/src* correspond à la racine du serveur web.
 
@@ -67,13 +67,14 @@ Pour chaque projet Lara7, il faut créer le répertoire correspondant à la raci
 
 Pour pouvoir accéder à votre projet depuis votre navigateur, il vous est demandé d'éditer votre fichier **/etc/hosts** en y rajoutant cette ligne :
 
-```127.0.0.1       **{projectName}**.hegyd.local```
-> **{projectName}** étant à remplacer par le nom de votre sous-répertoire correspondant au projet à ajouter
+```127.0.0.1       ${projectName}.hegyd.local```
+> **${projectName}** étant à remplacer par le nom de votre sous-répertoire correspondant au projet à ajouter
 
-Ainsi, chaque sous-répertoire dans */src* sera disponible à l'adresse **{projectName}.hegyd.local:{ENV.HTTP_PORT}**.
-> **{ENV.HTTP_PORT}** étant une variable de configuration du fichier **.env**
+Ainsi, chaque sous-répertoire dans */src* sera disponible à l'adresse **${projectName}.hegyd.local:${ENV.HTTP_PORT}**.
+> **${ENV.HTTP_PORT}** étant une variable de configuration du fichier **.env**
 
 > Les variables d'environnement de connexion à la base de données sont déjà définies dans l'image docker, il n'est donc pas utile de les redéfinir dans votre .env
+>
 > Si vous les définissez tout de même dans le .env de votre projet, elles seront ignorées
 
 ### Travailler sur un projet

@@ -18,7 +18,7 @@ Ainsi, cette image est adaptée pour les projets Lara7. Pour les projets Lara ou
 
 Pour pouvoir commencer à travailler sur l'image, il faut d'abord que vous compreniez son fonctionnement. Nous relevons 2 répertoires à la racine du projet :
 
-- **/src** : c'est dans ce répertoire que vous publierez vos sources (laravel). Ce répertoire sera copié en temps réel dans le container Apache et sera donc disponible sur le serveur web
+- **/src** : c'est dans ce répertoire que vous publierez vos sources (laravel). Ce répertoire sera copié en temps réel dans le containeur Apache et sera donc disponible sur le serveur web
 - **/docker** : c'est le dossier de configuration de l'image Docker
 
 ## Configurer l'image Docker
@@ -90,7 +90,7 @@ Voici la commande vous permettant de vous connecter à votre containeur :
 
 ```docker exec -it lara7-webapp bash```
 
-Cette commande vous connectera en **ssh** sur votre container, dans lequel vous pourrez taper toutes les commandes dont vous aurez besoin.
+Cette commande vous connectera en **ssh** sur votre containeur, dans lequel vous pourrez taper toutes les commandes dont vous aurez besoin.
 Mais n'oubliez pas que le containeur contient **tous** vos projets Lara7. Pour taper des commandes **artisan** (par exemple), positionnez-vous d'abord dans le répertoire du projet désiré.
 
 Pour vous connecter en invite de commande à votre base de données, depuis votre machine :
@@ -122,21 +122,21 @@ Docker est un logiciel aujourd'hui largement répandu qui permet de déployer ai
 
 Docker tourne autour du concept de "containeur". Un containeur est semblable à une **machine virtuelle**, c'est à dire un sous-système d'exploitation *étanche* dans lequel nous allons installer un ensemble d'applications, de configurations...
 
-La différence principale entre un containeur** et une machine virtuelle réside dans la **légèreté** et dans la **simplicité d'utilisation et de configuration** d'un containeur.
+La différence principale entre un **containeur** et une machine virtuelle réside dans la **légèreté** et dans la **simplicité d'utilisation et de configuration** d'un containeur.
 
 En effet, un containeur est beaucoup plus léger qu'une machine virtuelle, et il est alors beaucoup plus rapide de lancer un containeur.
 
 Un containeur, pour être plus précis, correspond à une **instance** d'une **image** docker.
 
-Et une image, c'est un ensemble de règles qui vont définir comment sera construit notre container (ex: les règles de configurations, les logiciels/services à installer dans notre containeur).
+Et une image, c'est un ensemble de règles qui vont définir comment sera construit notre containeur (ex: les règles de configurations, les logiciels/services à installer dans notre containeur).
 
 Comme analogie, je vous propose de comparer la relation image/containeur avec la relation classe/objet :
 
 > Une classe est une définition et un objet est l'instance d'une classe.
 
-Un second intérêt à utiliser Docker est alors de pouvoir déployer des containeurs docker dans différents environnements, à partir de la même image (et qui bénificient donc des même configurations et services).
+Un second intérêt à utiliser Docker est alors de pouvoir déployer des containeurs docker dans différents environnements, à partir de la même image (et qui bénéficient donc des mêmes configurations et services).
 
-*Marre des effets de bords liés à une version PHP non cohérente avec celle utilisée dans l'environnement de production 🤗 ? Utilisez Docker !*
+*Marre des effets de bord liés à une version PHP non cohérente avec celle utilisée dans l'environnement de production 🤗 ? Utilisez Docker !*
 
 ### Utiliser Docker
 

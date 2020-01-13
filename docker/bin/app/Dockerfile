@@ -17,18 +17,23 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs openssh-client
 
+# GD Dependencies
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libgmp-dev libldb-dev libldap2-dev netcat sqlite3 libsqlite3-dev
+RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
+    && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-install gd gmp bcmath pcntl ldap exif
+
 # PHP Extensions
-RUN pecl install imagick\
+RUN pecl install imagick \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install zip \
     && docker-php-ext-install pcntl \
     && docker-php-ext-install mcrypt \
     && docker-php-ext-install intl \
-    && docker-php-ext-install gd \
     && docker-php-ext-install soap \
     && docker-php-ext-enable imagick \
-    && docker-php-ext-install bz2 \
-    && docker-php-ext-install exif
+    && docker-php-ext-install bz2
 
 # Enable apache modules
 RUN a2enmod rewrite headers ssl vhost_alias
